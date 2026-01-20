@@ -16,12 +16,16 @@ export default defineConfig(({ mode }) => {
             react(),
             VitePWA({
                 registerType: 'autoUpdate',
+                workbox: {
+                    globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
+                },
                 includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
                 manifest: {
                     name: 'Gemini AI Calculator',
                     short_name: 'Kalku',
                     description: 'A simple calculator app powered by Gemini AI.',
                     theme_color: '#ffffff',
+                    background_color: '#ffffff',
                     icons: [
                         {
                             src: 'pwa-192x192.png',
