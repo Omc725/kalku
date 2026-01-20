@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Gemini AI Calculator</title>
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/kalku/assets/manifest-CYCbTcmr.json">
+    <meta name="theme-color" content="#191022">
+
+    <!-- iOS PWA Tags -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- Tailwind Script -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: 'var(--color-primary)',
+              secondary: 'var(--color-secondary)',
+              background: 'var(--color-background)',
+              surface: 'var(--color-surface)',
+              keypad: 'var(--color-keypad)',
+              'number-key': 'var(--color-number-key)',
+              'text-color': 'var(--color-text)',
+              'text-muted': 'var(--color-text-muted)',
+              'text-on-primary': 'var(--color-text-on-primary)',
+              'text-on-secondary': 'var(--color-text-on-secondary)',
+            },
+            fontFamily: {
+              "display": ["Space Grotesk", "sans-serif"]
+            },
+            animation: {
+              'pop-in': 'pop-in 0.4s cubic-bezier(0.4, 1.25, 0.2, 1) forwards',
+              'fade-in': 'fade-in 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards',
+            },
+            keyframes: {
+              'pop-in': {
+                'from': {
+                  transform: 'scale(0.8)',
+                  opacity: '0'
+                },
+                'to': {
+                  transform: 'scale(1)',
+                  opacity: '1'
+                },
+              },
+              'fade-in': {
+                'from': {
+                  opacity: '0'
+                },
+                'to': {
+                  opacity: '1'
+                },
+              },
+            },
+          },
+        },
+      }
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        min-height: 100dvh;
+        -webkit-tap-highlight-color: transparent;
+      }
+      :root {
+        --color-primary: #f97316;
+        --color-secondary: #4f46e5;
+        --color-background: #191022;
+        --color-surface: #2c213a;
+        --color-keypad: #21182c;
+        --color-number-key: #3a2d4a;
+        --color-text: #ffffff;
+        --color-text-muted: #ffffff99;
+        --color-text-on-primary: #ffffff;
+        --color-text-on-secondary: #ffffff;
+      }
+      .dark {
+        --color-primary: #f97316;
+        --color-secondary: #4f46e5;
+        --color-background: #191022;
+        --color-surface: #2c213a;
+        --color-keypad: #21182c;
+        --color-number-key: #3a2d4a;
+        --color-text: #ffffff;
+        --color-text-muted: #ffffff99;
+        --color-text-on-primary: #ffffff;
+        --color-text-on-secondary: #ffffff;
+      }
+      html:not(.dark) {
+        --color-primary: #f97316;
+        --color-secondary: #4f46e5;
+        --color-background: #f1f5f9;
+        --color-surface: #ffffff;
+        --color-keypad: #e2e8f0;
+        --color-number-key: #cbd5e1;
+        --color-text: #1e293b;
+        --color-text-muted: #475569;
+        --color-text-on-primary: #ffffff;
+        --color-text-on-secondary: #ffffff;
+      }
+      .glass-mode body {
+        background: var(--glass-background) !important;
+        background-attachment: fixed;
+        background-size: cover;
+      }
+      .glass-mode .bg-surface,
+      .glass-mode .bg-keypad,
+      .glass-mode .bg-number-key {
+        backdrop-filter: blur(var(--glass-blur, 20px));
+        -webkit-backdrop-filter: blur(var(--glass-blur, 20px));
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 4px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: var(--color-secondary);
+        border-radius: 20px;
+      }
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+    <link rel="apple-touch-icon" href="/kalku/assets/apple-icon-180-QTG2SpPW.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="apple-touch-startup-image" href="/kalku/assets/apple-splash-2048-2732-CQjDODuS.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="/kalku/assets/apple-splash-2732-2048-Dx2yabc5.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" href="/kalku/assets/apple-splash-1668-2388-3q-vjDA4.png" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="/kalku/assets/apple-splash-2388-1668-DVgnsYg6.png" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" href="/kalku/assets/apple-splash-1536-2048-KZ9BHaZ-.png" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="/kalku/assets/apple-splash-2048-1536-DHmegK9Q.png" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" href="/kalku/assets/apple-splash-1640-2360-BzUDtIqy.png" media="(device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="/kalku/assets/apple-splash-2360-1640-CW7K9vNb.png" media="(device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" href="/kalku/assets/apple-splash-1668-2224-BorXFpFj.png" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="/kalku/assets/apple-splash-2224-1668-lYUKFizu.png" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" href="/kalku/assets/apple-splash-1620-2160-B6oliDzm.png" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="/kalku/assets/apple-splash-2160-1620-Blz39QNz.png" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" href="/kalku/assets/apple-splash-1488-2266-l1t6ka5X.png" media="(device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="/kalku/assets/apple-splash-2266-1488-Cfik9xTc.png" media="(device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" href="/kalku/assets/apple-splash-1320-2868-DfeSntfm.png" media="(device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="/kalku/assets/apple-splash-2868-1320-L8vHod5t.png" media="(device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" href="/kalku/assets/apple-splash-1206-2622-HAnrJTmo.png" media="(device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="/kalku/assets/apple-splash-2622-1206-BeZ4XkuP.png" media="(device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" href="/kalku/assets/apple-splash-1260-2736-mfQIgidV.png" media="(device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="/kalku/assets/apple-splash-2736-1260-BtMd1mhu.png" media="(device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" href="/kalku/assets/apple-splash-1290-2796-tHLtTX1r.png" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="/kalku/assets/apple-splash-2796-1290-CBMRJIc3.png" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" href="/kalku/assets/apple-splash-1179-2556-NAv_DpUa.png" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="/kalku/assets/apple-splash-2556-1179-BURcDDn3.png" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" href="/kalku/assets/apple-splash-1170-2532-D9XKSiSr.png" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="/kalku/assets/apple-splash-2532-1170-DzSKt_AH.png" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" href="/kalku/assets/apple-splash-1284-2778-B2CyaTOf.png" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="/kalku/assets/apple-splash-2778-1284-V7f1fk_A.png" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" href="/kalku/assets/apple-splash-1125-2436-B6LMKtJS.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="/kalku/assets/apple-splash-2436-1125-Bjgc1MHR.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" href="/kalku/assets/apple-splash-1242-2688-tznbNwgM.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="/kalku/assets/apple-splash-2688-1242-pOWX9vhQ.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" href="/kalku/assets/apple-splash-828-1792-DTaykKQy.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="/kalku/assets/apple-splash-1792-828-BSuOyvJ4.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" href="/kalku/assets/apple-splash-1242-2208-DbLl3mmd.png" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="/kalku/assets/apple-splash-2208-1242-BMyYDcfc.png" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" href="/kalku/assets/apple-splash-750-1334-8wrqlp_W.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="/kalku/assets/apple-splash-1334-750-CmOLrA_Z.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" href="/kalku/assets/apple-splash-640-1136-RUadDIWy.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="/kalku/assets/apple-splash-1136-640-DZKBzBKW.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+    <script type="module" crossorigin src="/kalku/assets/index-JYtb_ErN.js"></script>
+  </head>
+  <body class="bg-background font-display text-text-color transition-colors duration-300">
+    <div id="root"></div>
+  </body>
+</html>
