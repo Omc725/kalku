@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+body { 
+    min-height: 100dvh; 
+    -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+    --color-primary: #f97316;
+    --color-secondary: #4f46e5;
+    --color-background: #191022;
+    --color-surface: #2c213a;
+    --color-keypad: #21182c;
+    --color-number-key: #3a2d4a;
+    --color-text: #ffffff;
+    --color-text-muted: #ffffff99;
+    --color-text-on-primary: #ffffff;
+    --color-text-on-secondary: #ffffff;
+}
+
+/* Glassmorphism Logic - Vivid Crystal Edition */
+.glass-mode body {
+    background: var(--glass-background) !important;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.glass-mode .bg-surface, 
+.glass-mode .bg-keypad,
+.glass-mode .bg-number-key,
+.glass-mode .glass-view {
+    backdrop-filter: blur(var(--glass-blur, 20px)) saturate(250%) contrast(110%);
+    -webkit-backdrop-filter: blur(var(--glass-blur, 20px)) saturate(250%) contrast(110%);
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Ana renk butonları */
+.glass-mode .bg-primary {
+    background-color: var(--color-primary-glass) !important;
+    backdrop-filter: blur(12px) saturate(280%) contrast(115%);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 20px -2px rgba(var(--color-primary-rgb), 0.5);
+}
+.glass-mode .bg-secondary {
+    background-color: var(--color-secondary-glass) !important;
+    backdrop-filter: blur(12px) saturate(280%) contrast(115%);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 20px -2px rgba(var(--color-secondary-rgb), 0.5);
+}
+
+.glass-mode .glass-view {
+    background-color: var(--color-overlay) !important;
+    backdrop-filter: blur(calc(var(--glass-blur, 20px) * 1.5)) saturate(250%) contrast(110%);
+    -webkit-backdrop-filter: blur(calc(var(--glass-blur, 20px) * 1.5)) saturate(250%) contrast(110%);
+    border: none;
+}
+
+.custom-scrollbar::-webkit-scrollbar { width: 4px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+.custom-scrollbar::-webkit-scrollbar-thumb { background: var(--color-secondary); border-radius: 20px; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.will-change-transform { will-change: transform; }
+
+input[type=range] {
+    -webkit-appearance: none;
+    width: 100%;
+    background: transparent;
+}
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    cursor: pointer;
+    margin-top: -8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 4px;
+    cursor: pointer;
+    background: var(--color-text-muted);
+    border-radius: 2px;
+    opacity: 0.3;
+}
