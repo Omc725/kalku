@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const CACHE_NAME = 'gemini-calculator-v1';
 // This list should include all the files needed for the app to run offline.
 const urlsToCache = [
@@ -94,3 +95,6 @@ self.addEventListener('activate', event => {
     })
   );
 });
+=======
+if(!self.define){let e,i={};const f=(f,n)=>(f=new URL(f+".js",n).href,i[f]||new Promise(i=>{if("document"in self){const e=document.createElement("script");e.src=f,e.onload=i,document.head.appendChild(e)}else e=f,importScripts(f),i()}).then(()=>{let e=i[f];if(!e)throw new Error(`Module ${f} didn’t register its module`);return e}));self.define=(n,r)=>{const s=e||("document"in self?document.currentScript.src:"")||location.href;if(i[s])return;let t={};const o=e=>f(e,s),c={module:{uri:s},exports:t,require:o};i[s]=Promise.all(n.map(e=>c[e]||o(e))).then(e=>(r(...e),t))}}define(["./workbox-8c29f6e4"],function(e){"use strict";self.skipWaiting(),e.clientsClaim(),e.precacheAndRoute([{url:"registerSW.js",revision:"a0f971c1bb147a9ea64fdd2ff2c59e07"},{url:"pwa-512x512.png",revision:"c6cf59cbde3e4f33e49f11af3ee9140e"},{url:"pwa-192x192.png",revision:"c6cf59cbde3e4f33e49f11af3ee9140e"},{url:"index.html",revision:"e6db86802cb1581f68401897f8e122d0"},{url:"assets/index-D3tlFbgv.js",revision:null},{url:"pwa-192x192.png",revision:"c6cf59cbde3e4f33e49f11af3ee9140e"},{url:"pwa-512x512.png",revision:"c6cf59cbde3e4f33e49f11af3ee9140e"},{url:"manifest.webmanifest",revision:"5d1f18f0ee15f156a2869923457f97b5"}],{}),e.cleanupOutdatedCaches(),e.registerRoute(new e.NavigationRoute(e.createHandlerBoundToURL("index.html")))});
+>>>>>>> 09dc8328d0062f903607c52af9fd05d62cde79f7
