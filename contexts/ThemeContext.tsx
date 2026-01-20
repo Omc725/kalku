@@ -114,15 +114,12 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
             root.style.setProperty('--color-secondary', newTheme.secondary);
             
             root.style.setProperty('--color-background', 'transparent'); 
+
+            root.style.setProperty('--color-surface', hexToRgba(newTheme.surface, glassOpacity));
+            root.style.setProperty('--color-keypad', hexToRgba(newTheme.keypad, glassOpacity));
+            root.style.setProperty('--color-number-key', hexToRgba(newTheme['number-key'], Math.min(1, glassOpacity + 0.1)));
             
-            // SURFACE ve KEYPAD için opaklığı her zaman yüksek tut (0.90), böylece "renkli" ve "dolu" görünürler.
-            // glassOpacity ise sadece genel 'blur' ve yardımcı alanları etkiler.
-            const containerOpacity = 0.90;
-            root.style.setProperty('--color-surface', hexToRgba(newTheme.surface, containerOpacity));
-            root.style.setProperty('--color-keypad', hexToRgba(newTheme.keypad, containerOpacity));
-            root.style.setProperty('--color-number-key', hexToRgba(newTheme['number-key'], Math.min(1, containerOpacity + 0.05)));
-            
-            const overlayOpacity = 0.95; 
+            const overlayOpacity = Math.min(1, glassOpacity + 0.2); 
             root.style.setProperty('--color-overlay', hexToRgba(newTheme.surface, overlayOpacity));
             
             root.style.setProperty('--color-text', newTheme.text);
