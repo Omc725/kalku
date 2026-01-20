@@ -21,6 +21,9 @@ export default defineConfig(({ mode }) => {
         VitePWA({
           registerType: 'autoUpdate',
           includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
+          workbox: {
+            globPatterns: ['**/*.{js,css,html,ico,png,svg,json,woff2}']
+          },
           manifest: {
             name: 'Gemini AI Calculator',
             short_name: 'Gemini Calc',
@@ -29,6 +32,8 @@ export default defineConfig(({ mode }) => {
             background_color: '#191022',
             display: 'standalone',
             orientation: 'portrait',
+            start_url: '/kalku/',
+            scope: '/kalku/',
             icons: [
               {
                 src: 'icons/icon-72x72.png',

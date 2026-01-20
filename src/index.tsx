@@ -1,7 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css'; // Tailwind stillerini içeren dosya
+import './index.css';
 import App from './App';
+import { registerSW } from 'virtual:pwa-register';
+
+// PWA Service Worker Kaydı
+const updateSW = registerSW({
+  onNeedRefresh() {
+    if (confirm('Yeni içerik mevcut. Yenilemek ister misiniz?')) {
+      updateSW(true);
+    }
+  },
+  onOfflineReady() {
+    console.log('Uygulama çevrimdışı çalışmaya hazır.');
+  },
+});
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
