@@ -1,0 +1,6 @@
+{
+    "scripts": {
+        "build:pwa": "VITE_BASE_PATH=/kalku/ vite build",
+        "build:android": "vite build"
+    }
+}

@@ -8,6 +8,7 @@
     "ios": "expo run:ios",
     "generate-assets": "capacitor-assets generate",
     "build": "vite build",
+    "build:pwa": "VITE_BASE_PATH=/kalku/ vite build",
     "preview": "vite preview"
   },
   "dependencies": {
