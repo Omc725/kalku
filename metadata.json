@@ -1,0 +1,5 @@
+{
+  "name": "Gemini AI Calculator",
+  "description": "A modern, feature-rich scientific calculator and unit converter with a sleek, intuitive user interface. It supports standard arithmetic, scientific functions, calculation history, and various unit conversions.",
+  "requestFramePermissions": []
+}
